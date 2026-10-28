@@ -7,13 +7,13 @@ import { useState } from "react";
 function App() {
   const [degrees, setDegrees] = useState(20);
   function handleIncreaseTemperature() {
-    setDegrees((degree) => degree + 1);
+    setDegrees((degree) => (degree < 28 ? degree + 1 : 28));
   }
   function handleDecreaseTemperature() {
-    setDegrees((degree) => degree - 1);
+    setDegrees((degree) => (degree > 16 ? degree - 1 : 16));
   }
   function handleResetTemperature() {
-    setDegrees(0);
+    setDegrees(20);
   }
   return (
     <div className="d-flex min-vh-100">

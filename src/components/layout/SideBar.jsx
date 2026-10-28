@@ -3,7 +3,7 @@ import TemperatureContext from "../contexts/TemperatureContext";
 import { ThermometerSnowflake } from "lucide-react";
 import { ThermometerSun } from "lucide-react";
 export default function SideBar() {
-  const { degrees } = useContext(TemperatureContext);
+  const { degrees, handleResetTemperature } = useContext(TemperatureContext);
 
   return (
     <section className="px-3 border-end py-4 bg-dark text-light">
@@ -12,6 +12,9 @@ export default function SideBar() {
         {degrees <= 20 && <ThermometerSnowflake size={18} />}
         Thermostat at {degrees} degrees
       </a>
+      <button onClick={handleResetTemperature} className="btn btn-warning my-4">
+        Reset
+      </button>
     </section>
   );
 }
