@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import TemperatureContext from "../contexts/TemperatureContext";
 import { Snowflake } from "lucide-react";
 import { Parasol } from "lucide-react";
 import { Rose } from "lucide-react";
+import { useTemperatureContext } from "../contexts/TemperatureContext";
 
 export default function ThermostatSection() {
   const {
@@ -10,7 +9,7 @@ export default function ThermostatSection() {
     handleIncreaseTemperature,
     handleDecreaseTemperature,
     handleResetTemperature,
-  } = useContext(TemperatureContext);
+  } = useTemperatureContext();
 
   // Calcolo derivato sia del testo che del colore
   const getTemperatureBadge = () => {

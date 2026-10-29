@@ -2,29 +2,11 @@ import HeaderContent from "./components/layout/HeaderContent";
 import SideBar from "./components/layout/SideBar";
 import MainContent from "./components/layout/MainContent";
 import FooterContent from "./components/layout/FooterContent";
-import TemperatureContext from "./components/contexts/TemperatureContext";
-import { useState } from "react";
+import TemperatureContextProvider from "./components/contexts/TemperatureContext";
 function App() {
-  const [degrees, setDegrees] = useState(20);
-  function handleIncreaseTemperature() {
-    setDegrees((degree) => (degree < 28 ? degree + 1 : 28));
-  }
-  function handleDecreaseTemperature() {
-    setDegrees((degree) => (degree > 16 ? degree - 1 : 16));
-  }
-  function handleResetTemperature() {
-    setDegrees(20);
-  }
   return (
     <div className="d-flex min-vh-100">
-      <TemperatureContext.Provider
-        value={{
-          degrees,
-          handleIncreaseTemperature,
-          handleDecreaseTemperature,
-          handleResetTemperature,
-        }}
-      >
+      <TemperatureContextProvider>
         {/* Sidebar fissa a sinistra a tutta altezza */}
         <SideBar />
 
@@ -34,7 +16,7 @@ function App() {
           <MainContent />
           <FooterContent />
         </div>
-      </TemperatureContext.Provider>
+      </TemperatureContextProvider>
     </div>
   );
 }

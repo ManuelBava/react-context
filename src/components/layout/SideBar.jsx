@@ -1,9 +1,8 @@
-import { useContext } from "react";
-import TemperatureContext from "../contexts/TemperatureContext";
+import { useTemperatureContext } from "../contexts/TemperatureContext";
 import { ThermometerSnowflake } from "lucide-react";
 import { ThermometerSun } from "lucide-react";
 export default function SideBar() {
-  const { degrees, handleResetTemperature } = useContext(TemperatureContext);
+  const { degrees, handleResetTemperature } = useTemperatureContext();
 
   return (
     <section className="px-3 border-end py-4 bg-dark text-light">
